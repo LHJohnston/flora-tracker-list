@@ -43,7 +43,7 @@ class _ToDoListState extends State<ToDoList> {
   void _handleListChanged(Flora item, bool completed) {
     setState(() {
       // When a user changes what's in the list, you need
-      // to change _itemSet inside a setState call to
+      // to change _itemSet inside a setState call to]
       // trigger a rebuild.
       // The framework then calls build, below,
       // which updates the visual appearance of the app.
@@ -69,10 +69,15 @@ class _ToDoListState extends State<ToDoList> {
     });
   }
 
-  void _handleNewItem(String itemText, FloraType type, TextEditingController textController) {
+  void _handleNewItem(String itemText, FloraType itemType,
+      TextEditingController textController) {
     setState(() {
       print("Adding new item");
-      Flora item = Flora(name: itemText, type: type);
+      Flora item = Flora(
+          name: itemText,
+          color: itemType.rgbColor,
+          imagePath: itemType.imagePath,
+          type: itemType);
       items.insert(0, item);
       textController.clear();
       saveData();
